@@ -11,27 +11,35 @@ function getNumber() {
     return number;
 }
 
-//function to create divs changing on number input and getting the square route
-function createDiv() {
+//function to create divs from a number input
+function createCollumn() {
     let number = getNumber();
-    number = number * number;
 
     for (let i = 0; i < number; i++) {
-        const div = document.createElement("div");
-        div.classList.add("sketchBox");
-        container.appendChild(div);
+        const collumns = document.createElement("div");
+        collumns.classList.add("collumnBox");
+        container.appendChild(collumns);
+
+    for (let i = 0; i < number; i++) {
+        const rows = document.createElement("div");
+        rows.classList.add("sketchBox");
+        collumns.appendChild(rows);
     }
+}
 }
 
 //gets number and createws div on button press
 const sizeButton = document.getElementById("sizeButton")
-sizeButton.addEventListener("click", createDiv);
+sizeButton.addEventListener("click", createCollumn);
 
-
-//changes div colour when hovered over
-    const sketchBoxes = document.querySelectorAll(".sketchBox");
-    sketchBoxes.forEach((sketchBox) => {
-        sketchBox.addEventListener("mouseover", () => {
-            sketchBox.style.backgroundColor = "blue";
-        });
+//function to clear the grid
+function clear() {
+    const collumnBox = document.querySelectorAll(".collumnBox");
+    collumnBox.forEach((collumnBox) => {
+        collumnBox.remove();
     });
+}
+
+//button press to clear grid
+const clearButton = document.getElementById("clear");
+clearButton.addEventListener("click", clear);
