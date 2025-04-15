@@ -13,6 +13,7 @@ function getNumber() {
 
 //function to create divs from a number input
 function createCollumn() {
+    clear();
     let number = getNumber();
 
     for (let i = 0; i < number; i++) {
@@ -26,6 +27,12 @@ function createCollumn() {
         collumns.appendChild(rows);
     }
 }
+const sketchBox = document.querySelectorAll(".sketchBox");
+sketchBox.forEach((box) => {
+    box.addEventListener("mouseover", () => {
+        box.style.backgroundColor = "black";
+    });
+});
 }
 
 //gets number and createws div on button press
